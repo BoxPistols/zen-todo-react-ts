@@ -2,7 +2,8 @@ import {useState} from 'react';
 import "./App.css";
 
 type Todo = {
-  value: string
+  value: string;
+  readonly id: number;
 }
 
 export const App = () => {
@@ -23,7 +24,9 @@ export const App = () => {
        * 新規Todo用定数の作成
        **/
       const newTodo: Todo = { // フォームの入力値, 型はvalue: string
-        value: text // 入力値はuseStateの値と連動
+        value: text, // 入力値はuseStateの値と連動
+        id: new Date().getTime()
+
       }
       // スプレッド構文を用いて todos ステートのコピーへ newTodo を追加する
       setTodos([
@@ -56,6 +59,17 @@ export const App = () => {
         <input type="submit" value="追加"
           onSubmit={handleOnSubmit}/>
       </form>
+
+      <ul>{
+        todos.map((todo) => {
+          return <li key={
+            todo.id
+          }>
+            {
+            todo.value
+          }</li>
+      })
+      }</ul>
     </div>
   )
 }
