@@ -1,27 +1,26 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import "./App.css";
 
+export const App = () => {
 
-function App() {
-  const initialState = 0
-  const [count, setCount] = useState(initialState);
+  const[text, setText] = useState("")
 
   return (
-    <>
-      <div className="counter">
-        <h2>count: {count}</h2>
-        <button onClick={
-          () => setCount(initialState)
-        }>Reset</button>
-        <button onClick={
-          () => setCount(prevCount => prevCount + 1)
-        }>Count Up</button>
-        <button onClick={
-          () => setCount(prevCount => prevCount - 1)
-        }>Count Down</button>
-      </div>
-    </>
-  );
+    <div className='container'>
+      <h2>input text</h2>
+      {text}
+      <form onSubmit={
+        (e) => e.preventDefault()
+      }>
+        <input type="text" value={text}
+          onChange={
+            (e) => setText(e.target.value)
+          }/>
+        <input type="submit" value="追加"
+          onSubmit={
+            (e) => e.preventDefault()
+          }/>
+      </form>
+    </div>
+  )
 }
-
-export default App;

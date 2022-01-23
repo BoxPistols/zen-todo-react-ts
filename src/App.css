@@ -10,3 +10,10 @@ button {
   margin: 1em;
   font-size: calc(10px + 2vmin);
 }
+
+.container{
+  max-width: 800px;
+  width: 90%;
+  margin: 12vh auto;
+  font-family: arial;
+}
