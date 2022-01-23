@@ -10,6 +10,11 @@ export const App = () => {
   const [text, setText] = useState("")
   const [todos, setTodos] = useState < Todo[] > ([])
 
+  // コールバック関数でpropsで渡せるようにする
+  const handleOnChange = (e : React.ChangeEvent < HTMLInputElement >) => {
+    setText(e.target.value)
+  }
+
   // for todo submit event
   const handleOnSubmit = () => { // 未入力は返す
     if (!text) {
@@ -30,10 +35,12 @@ export const App = () => {
     }
   }
 
+
   return (
     <div className='container'>
       <h2>input text</h2>
-      {text}
+
+      {/* Form */}
       <form onSubmit={
         (e) => {
           e.preventDefault()
@@ -44,8 +51,8 @@ export const App = () => {
         <input type="text"
           value={text}
           onChange={
-            (e) => setText(e.target.value)
-          }/>
+            (e) => handleOnChange(e)
+          }/> {/* Submit */}
         <input type="submit" value="追加"
           onSubmit={handleOnSubmit}/>
       </form>
