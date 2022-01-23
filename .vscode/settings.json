@@ -16,7 +16,7 @@
         "**/Thumbs.db": true
     },
     "editor.lineNumbers": "off",
-    "files.autoSave": "afterDelay",
+    "files.autoSave": "onFocusChange",
     "codeswing.autoSave": true,
     "editor.tabSize": 2,
     "editor.wordWrap": "on",
@@ -24,5 +24,11 @@
         "activityBar.background": "#57064C",
         "titleBar.activeBackground": "#7A086A",
         "titleBar.activeForeground": "#FFFAFE"
-    }
+    },
+    "eslint.run": "onSave",
+    "markdownlint.run": "onSave",
+    "intelephense.diagnostics.run": "onSave",
+    "sasslint.run": "onSave",
+    "stylint.run": "onSave",
+    "enableCommentFormatting": false
 }
